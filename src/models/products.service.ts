@@ -27,7 +27,7 @@ export class ProductsService {
     await this.productsRepository.delete(id);
   }
 
-  findBy(ids: object): Promise<Product[]> {
-    return this.productsRepository.findBy(ids);
+  findBy(ids: string[]): Promise<Product[]> {
+    return this.productsRepository.findBy({ id: In([...ids]) });
   }
 }

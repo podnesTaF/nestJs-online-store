@@ -77,6 +77,6 @@ export class AuthController {
   @Get('/logout')
   @Redirect('/')
   logout(@Req() request) {
-    request.session = null;
+    request.session.user = null;
   }
 }
